@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+    <!--
+
+    配置持久化单元
+    name:持久化单元名称
+    transaction-type是事物类型(jta是分布式事物管理，resource_locl是本地事物管理)
+    -->
+   <persistence-unit name="myJpa" transaction-type="RESOURCE_LOCAL">
+       <!--指定Jpa规范的提供商-->
+       <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+       <properties>
+           <!--
+           配置数据驱动
+           -->
+           <property name="hibernate.connection.driver" value="com.mysql.jdbc.Driver"/>
+           <property name="hibernate.connection.url" value="jdbc:mysql://192.168.56.101:3306/springdatajpa"/>
+           <property name="hibernate.connection.username" value="root"/>
+           <property name="hibernate.connection.password" value="123"/>
+           <property name="hibernate.show_sql" value="true"/>
+           <property name="hibernate.format_sql" value="true"/>
+           <property name="hibernate.hbm2ddl.auto" value="validate"/>
+
+       </properties>
+   </persistence-unit>
+</persistence>
